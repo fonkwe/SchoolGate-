@@ -1,3 +1,6 @@
+"use client"
+
+import React, { useState } from 'react';
 import Image from "next/image";
 import MenuLink from "./menuLink/menuLink";
 import styles from "./sidebar.module.css";
@@ -78,9 +81,18 @@ const menuItems = [
   },
 ];
 
-const Sidebar = async () => {
+function Sidebar() {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
   return (
-    <div className={styles.container}>
+    <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+      <button className="toggle-button" onClick={toggleSidebar}>
+        Toggle Sidebar
+      </button>
       <div className={styles.user}>
         <Image
           className={styles.userImage}
@@ -104,18 +116,18 @@ const Sidebar = async () => {
           </li>
         ))}
       </ul>
-      <form
+      {/* <form
         action={async () => {
           "use server";
         }}
-      >
+      > */}
         <button className={styles.logout}>
           <MdLogout />
           Logout
         </button>
-      </form>
+      {/* </form> */}
     </div>
   );
-};
-
+}
 export default Sidebar;
+
