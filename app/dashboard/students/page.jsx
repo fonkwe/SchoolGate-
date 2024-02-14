@@ -1,18 +1,26 @@
-import React from 'react'
+"use client"
+
+import React, { Fragment, useState } from 'react'
 import Image from 'next/image'
 import { data } from '@/data/data'
+import Modal from '@/app/ui/dashboard/modal/modal'
 
 
-const studentPage = () => {
+
+const StudentPage = () => {
+    const [showModal, setShowModal] = useState(false);
+    
   return (
-   
+    <Fragment>
     <div className=' min-h-screen bg-[--var[--bg]]'>
         
         <div className='p-4'>
             <div className=' flex justify-between'>
-                <button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mb-2">
-                    Add Student
-                </button>
+                <button 
+                  className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mb-2"
+                  onClick={() => setShowModal(true)}
+                >
+                    Add Students</button>   
                 <form className=' mb-2'>   
                 <label for="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div class="relative">
@@ -65,8 +73,12 @@ const studentPage = () => {
             </div>
             
         </div>
+
     </div>
+         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
+    </Fragment>
+    
   )
 }
 
-export default studentPage
+export default StudentPage
