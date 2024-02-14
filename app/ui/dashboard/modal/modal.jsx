@@ -7,31 +7,33 @@ const Modal = ({ isVisible, onClose }) => {
             <div className=" w-100% flex flex-col">
                 <button className=' text-white text-xl place-self-end' onClick={() => onClose()}>X</button>
                 <div className=' bg-white p-2 rounded'>
-                <form className=" max-w-[90%] m-auto" >
-                    <h1 className=" text-black text-2xl items-end justify-center ">Create Student Profile</h1>
-                        <div className=" mb-5 text-black">
-                          <label htmlFor="name">Name</label>
+                <form className="max-w-md mx-auto" >
+                    <h1 className=" text-black text-2xl items-end justify-center font-bold mb-4 ">Create Student Profile</h1>
+                        <div className=" mb-4 ">
+                          <label htmlFor="name" className="block font-semibold">Name</label>
                             <input
                               type="text"
                               id="name"
                               value="name"
-                              className=' text-black'
+                              className="w-full px-4 py-2 border border-gray-300 rounded"
                             />
                         </div>
-                    <div className=" mb-5">
-                        <label htmlFor="age">Age</label>
+                    <div className=" mb-4">
+                        <label htmlFor="age" className="block font-semibold">Age</label>
                            <input
                               type="number"
                               id="age"
                               value="age"
+                              className="w-full px-4 py-2 border border-gray-300 rounded"
                             />
                     </div>
-                    <div className=" mb-5">
-                        <label htmlFor="email">Email</label>
+                    <div className=" mb-4">
+                    <label htmlFor="email" className="block font-semibold">Email</label>
                             <input
                                type="email"
                                id="email"
                                value="email"
+                               className="w-full px-4 py-2 border border-gray-300 rounded"
                             />
                     </div>
                     <button type="submit">Submit</button>
